@@ -1,0 +1,1054 @@
+
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos de Maquillaje</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            color: #333333;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden;
+        }
+        header {
+            background-color: #caa7d3;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            width: 95%;
+            margin: 20px auto;
+            border-radius: 10px;
+        }
+        nav {
+            background-color: #caa7d3;
+            color: white;
+            padding: 20px;
+            width: 200px;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            transform: translateX(-220px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.3s;
+            z-index: 1000;
+        }
+       
+        nav a {
+            color: rgb(255, 255, 255);
+            text-decoration: none;
+            margin: 5px 0;
+            padding: 10px;
+            width: 100%;
+            text-align: center;
+            border-radius: 5px;
+        }
+        nav a:hover {
+            background-color: #555;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+            width: 100%;
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+        .category {
+            width: 100%;
+            margin-bottom: 40px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            text-align: center; /* Add this line to center the text */
+        }
+        .category h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+            width: 100%; /* Add this line to ensure the heading takes full width */
+        }
+        .product {
+            background-color: white;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            margin: 20px;
+            padding: 15px;
+            width: calc(20% - 40px); /* 4 products per row */
+            text-align: center;
+            box-sizing: border-box;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .product img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .product h3 {
+            margin: 10px 0;
+            color: #333;
+        }
+        .product p {
+            margin: 10px 0;
+        }
+        .product button {
+            background-color: #caa7d3;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            border: 2px solid rgba(0, 0, 0, 0.178);
+        }
+        .product button:hover {
+            background-color: #555;
+        }
+        .menu-toggle {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            z-index: 1001;
+            transition: left 0.3s;
+        }
+        .menu-toggle.open {
+            left: 220px;
+        }
+        .menu-toggle span {
+            display: block;
+            width: 20px;
+            height: 2px;
+            background-color: white;
+            margin: 4px 0;
+        }
+        .carousel {
+            width: 100%;
+            max-width: 800px;
+            height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .carousel img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+       
+        @media (max-width: 768px) {
+            .product {
+                width: calc(50% - 20px); /* 2 products per row */
+                margin: 10px;
+            }
+            nav {
+                width: 200px;
+                height: 100vh;
+                position: fixed;
+                left: 0;
+                top: 0;
+                transform: translateX(-220px);
+                flex-direction: column;
+                align-items: center;
+                padding: 10px 0;
+                transition: transform 0.3s;
+            }
+            nav a {
+                margin: 5px 0;
+                padding: 10px;
+                width: 90%;
+                text-align: center;
+            }
+            .menu-toggle {
+                display: block;
+                left: 20px;
+            }
+            .container {
+                width: 100%;
+                padding: 10px;
+            }
+            .carousel {
+                height: 200px;
+            }
+            .carousel img {
+                height: 100%;
+            }
+            #searchBar {
+                width: calc(100% - 20px);
+                margin: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+    <nav>
+        <a href="#Brocha">Brocha</a>
+        <a href="#Bases">Bases</a>
+        <a href="#Correctores">Correctores</a>
+        <a href="#Rubores">Rubores</a>
+        <a href="#Iluminador">Iluminadores</a>
+        <a href="#Polvos">Polvos</a>
+        <a href="#Cejas">Cejas</a>
+        <a href="#Delineador">Delineadores</a>
+        <a href="#Pestañas">Pestañas</a>
+        <a href="#Labios">Labios</a>
+        <a href="#CuidadoF">Cuidado Facial</a>
+        <a href="#Sombras">Sombras</a>
+        <a href="#Otros">Otros</a>
+    </nav>
+    <div class="container">
+        <div class="carousel">
+            <img src="Logos/Logo2.jpeg" alt="Fondo">
+        </div>
+        <header>
+            <h2>"El maquillaje es tu lienzo; ¡pinta tu belleza y brilla con confianza!"</h2>
+        </header>
+        <h2 id="Brocha">BROCHA</h2>
+        <div class="category">
+            <div class="product">
+                <img src="img/Brochas/Brocha1.jpg">
+                <h3>Brocha Para Sombra</h3>
+                <p>Precio: $5.000</p>
+                <button>Comprar</button>
+            </div>
+            <div class="product">
+                <img src="img/Brochas/Brocha2.jpg">
+                <h3>Brocha Difuminadora</h3>
+                <p>Precio: $5.000</p>
+                <button>Comprar</button>
+            </div>
+            <div class="product">
+                <img src="img/Brochas/Brocha3.jpg">
+                <h3>Brocha Para Iluminador</h3>
+                <p>Precio: $8.000</p>
+                <button>Comprar</button>
+            </div>
+            <div class="product">
+                <img src="img/Brochas/Brocha4.jpg">
+                <h3>Brocha Contorno Y Rubor</h3>
+                <p>Precio: $9.000</p>
+                <button>Comprar</button>
+            </div>
+            <div class="product">
+                <img src="img/Brochas/Brocha8.jpg">
+                <h3>Brocha Para Polvo</h3>
+                <p>Precio: $8.000</p>
+                <button>Comprar</button>
+            </div>
+            <div class="product">
+                <img src="img/Brochas/Brocha9.jpg">
+                <h3>Brocha Fina Detalle</h3>
+                <p>Precio: $5.500</p>
+                <button>Comprar</button>
+            </div>
+            <div class="product">
+                <img src="img/Brochas/Brocha10.jpg">
+                <h3>Set De Brochas X10</h3>
+                <p>Precio: $18.000</p>
+                <button>Comprar</button>
+            </div>
+            
+            
+        </div>  
+        <h2 id="Bases">BASES</h2>
+        <div class="category">
+            <div class="product">
+                <img src="img/Bases/Base1.jpg">
+                <h3>Base Liquida Miss Rose Beige 1</h3>
+                <p>Precio: $14.000</p>
+                <button>Comprar</button>
+            </div>
+            <div class="product">
+                <img src="img/Bases/Base3.jpg">
+                <h3>Base Liquida Miss Rose Beige 7</h3>
+                <p>Precio: $14.000</p>
+                <button>Comprar</button>
+            </div>
+            <div class="product">
+                <img src="img/Bases/Base6.jpg">
+                <h3>Base Liquida Full Cover</h3>
+                <p>Precio: $20.000</p>
+                <button>Comprar</button>
+            </div>
+            <div class="product">
+                <img src="img/Bases/Base7.jpg">
+                <h3>Base En Barra Tonos Medium</h3>
+                <p>Precio: $12.000</p>
+                <button>Comprar</button>
+            </div>
+            <div class="product">
+                <img src="img/Bases/Base8.jpg">
+                <h3>Base En Barra Tonos Light</h3>
+                <p>Precio: $12.000</p>
+                <button>Comprar</button>
+            </div>
+            <div class="product">
+                <img src="img/Bases/Base9.jpg">
+                <h3>Base Liquida + Polvo Suelto</h3>
+                <p>Precio: $12.000</p>
+                <button>Comprar</button>
+            </div>
+            <div class="product">
+                <img src="img/Bases/Base10.jpg">
+                <h3>Base Liquida True Skin</h3>
+                <p>Precio: $15.000</p>
+                <button>Comprar</button>
+            </div>
+        </div>
+    <h2 id="Correctores">CORRECTORES</h2>
+        <div class="category">
+            <div class="product">
+                <img src="img/Correctores/Corrector1.jpg">
+                <h3>Corrector Líquido + Lápiz Corrector</h3>
+                <p>Precio: $12.000</p>
+                <button>Comprar</button>
+            </div>
+            <div class="product">
+                <img src="img/Correctores/Corrector2.jpg">
+                <h3>Paleta De Corrector X4</h3>
+                <p>Precio: $13.000</p>
+                <button>Comprar</button>
+            </div>
+            <div class="product">
+                <img src="img/Correctores/Corrector3.jpg">
+                <h3>Paleta De Corrector X4</h3>
+                <p>Precio: $13.000</p>
+                <button>Comprar</button>
+            </div>
+            <div class="product">
+                <img src="img/Correctores/Corrector4.jpg">
+                <h3>Paleta De Correctores Concealer</h3>
+                <p>Precio: $10.000</p>
+                <button>Comprar</button>
+            </div>
+            <div class="product">
+                <img src="img/Correctores/Corrector5.jpg">
+                <h3>Paleta De Correctores Y Contornos</h3>
+                <p>Precio: $20.000</p>
+                <button>Comprar</button>
+            </div>
+        </div>
+
+        <h2 id="Rubores">RUBORES</h2>
+        <div class="category">  
+            <div class="product">
+                <img src="img/Rubores/Rubor1.jpg">
+                <h3>Rubor Líquido Blush Ushas</h3>
+                <p>Precio: $7.000</p>
+                <button>Comprar</button>
+            </div>
+            <div class="product">
+                <img src="img/Rubores/Rubor2.jpg">
+                <h3>Paleta Rubor</h3>
+                <p>Precio: $15.000</p>
+                <button>Comprar</button>
+            </div>
+            <div class="product">
+                <img src="img/Rubores/Rubor3.jpg">
+                <h3>Rubor En Barra</h3>
+                <p>Precio: $10.000</p>
+                <button>Comprar</button>
+            </div>
+            <div class="product">
+                <img src="img/Rubores/Rubor5.jpg">
+                <h3>Rubor Brillante Con Espejo</h3>
+                <p>Precio: $11.000</p>
+                <button>Comprar</button>
+            </div>
+            <div class="product">
+                <img src="img/Rubores/Rubor7.jpg">
+                <h3>Rubor Líquido Huxiabeauty</h3>
+                <p>Precio: $6.500</p>
+                <button>Comprar</button>
+            </div>
+        </div>
+        <h2 id="Iluminador">ILUMINADOR</h2>
+        <div class="category">
+
+            <div class="product">
+                <img src="img/Iluminadores/Iluminador5.jpg">
+                <h3>Iluminador Star</h3>
+                <p>Precio: $8.000</p>
+                <button>Comprar</button>
+            </div>
+            <div class="product">
+                <img src="img/Iluminadores/Iluminador6.jpg">
+                <h3>Iluminador Highlight</h3>
+                <p>Precio: $6.000</p>
+                <button>Comprar</button>
+            </div>
+            <div class="product">
+                <img src="img/Iluminadores/Iluminador7.jpg">
+                <h3>Duo De Iluminadores</h3>
+                <p>Precio: $8.000</p>
+                <button>Comprar</button>
+            </div>
+            <div class="product">
+                <img src="img/Iluminadores/Iluminador8.jpg">
+                <h3>Paleta De Iluminador X4</h3>
+                <p>Precio: $12.000</p>
+                <button>Comprar</button>
+            </div>
+            <div class="product">
+                <img src="img/Iluminadores/Iluminador10.jpg">
+                <h3>Paleta De Iluminador X4 Ushas</h3>
+                <p>Precio: $11.000</p>
+                <button>Comprar</button>
+            </div>
+            <div class="product">
+                <img src="img/Iluminadores/Iluminador13.jpg">
+                <h3>Polvo De Hadas Magic</h3>
+                <p>Precio: $8.000</p>
+                <button>Comprar</button>
+            </div>
+            <div class="product">
+                <img src="img/Iluminadores/Iluminador14.jpg">
+                <h3>Polvo De Hadas Skin</h3>
+                <p>Precio: $7.000</p>
+                <button>Comprar</button>
+            </div>
+            <h2 id="Polvos">POLVOS</h2>
+            <div class="category">
+                <div class="product">
+                    <img src="img/Polvos/Polvo1.jpg">
+                    <h3>Polvo Compacto Fijador</h3>
+                    <p>Precio: $9.000</p>
+                    <button>Comprar</button>
+                </div>
+                <div class="product">
+                    <img src="img/Polvos/Polvo3.jpg">
+                    <h3>Polvo Compacto Super Stay</h3>
+                    <p>Precio: $10.500</p>
+                    <button>Comprar</button>
+                </div>
+                <div class="product">
+                    <img src="img/Polvos/Polvo4.jpg">
+                    <h3>Polvo Compacto Matte Flash</h3>
+                    <p>Precio: $8.000</p>
+                    <button>Comprar</button>
+                </div>
+                <div class="product">
+                    <img src="img/Polvos/Polvo5.jpg">
+                    <h3>Polvo Translúcido Blanco Super Girl</h3>
+                    <p>Precio: $13.000</p>
+                    <button>Comprar</button>
+                </div>
+                <div class="product">
+                    <img src="img/Polvos/Polvo7.jpg">
+                    <h3>Polvo Suelto Blanco</h3>
+                    <p>Precio: $7.500</p>
+                    <button>Comprar</button>
+                </div>
+            </div>
+            <h2 id="Cejas">CEJAS</h2>
+        <div class="category">
+            <div class="product">
+                <img src="img/Cejas/Cejas1.jpg">
+                <h3>Jabon Para Cejas Belendabeauty</h3>
+                <p>Precio: $5.000</p>
+                <button>Comprar</button>
+            </div>
+            <div class="product">
+                <img src="img/Cejas/Cejas2.jpg">
+                <h3>Lapiz Delineador Y Cepillo  De Cejas</h3>
+                <p>Precio: $5.000</p>
+                <button>Comprar</button>
+            </div>
+            <div class="product">
+                <img src="img/Cejas/Cejas3.jpg">
+                <h3>Polvo De Cejas Miss Fon Duo</h3>
+                <p>Precio: $7.000</p>
+                <button>Comprar</button>
+            </div>
+            <div class="product">
+                <img src="img/Cejas/Cejas6.jpg">
+                <h3>Polvo De Cejas X4</h3>
+                <p>Precio: $9.000</p>
+                <button>Comprar</button>
+            </div>
+            <div class="product">
+                <img src="img/Cejas/Cejas8.jpg">
+                <h3>Lapiz De Cejas 36H</h3>
+                <p>Precio: $5.000</p>
+                <button>Comprar</button>
+            </div>
+        </div> 
+        <h2 id="Delineador">DELINIADORES</h2>
+        <div class="category">
+            <div class="product">
+                <img src="img/Deliniador/Deliniador2.jpg">
+                <h3>Delineador En Plumon</h3>
+                <p>Precio: $5.000</p>
+                <button>Comprar</button>
+            </div>
+            <div class="product">
+                <img src="img/Deliniador/Deliniador3.jpg">
+                <h3>Delineador Rosa</h3>
+                <p>Precio: $6.000</p>
+                <button>Comprar</button>
+            </div>
+            <div class="product">
+                <img src="img/Deliniador/Deliniador4.jpg">
+                <h3>Delineador Líquido + Delineador Tres Pelos
+                </h3>
+                <p>Precio: $5.000</p>
+                <button>Comprar</button>
+            </div>
+            <div class="product">
+                <img src="img/Deliniador/Deliniador6.jpg">
+                <h3>Delineador Fit</h3>
+                <p>Precio: $5.000</p>
+                <button>Comprar</button>
+            </div>
+            <div class="product">
+                <img src="img/Deliniador/Deliniador7.jpg">
+                <h3>Lápiz Delineador Blanco</h3>
+                <p>Precio: $3.000</p>
+                <button>Comprar</button>
+            </div>
+        </div>
+        <h2 id="Pestañas">PESTAÑAS</h2>
+        <div class="category">
+            <div class="product">
+                <img src="img/Pestañas/Pestañas1.jpg">
+                <h3>Tratamiento De Pestañas Fortalecedor</h3>
+                <p>Precio: $7.500</p>
+                <button>Comprar</button>
+            </div>
+            <div class="product">
+                <img src="img/Pestañas/Pestañas4.jpg">
+                <h3>Set De Pestañas X3 Piezas</h3>
+                <p>Precio: $5.000</p>
+                <button>Comprar</button>
+            </div>
+            <div class="product">
+                <img src="img/Pestañas/Pestañas6.jpg">
+                <h3>Tratamiento De Pestañas Olive</h3>
+                <p>Precio: $5.500</p>
+                <button>Comprar</button>
+            </div>
+            <div class="product">
+                <img src="img/Pestañas/Pestañas7.jpg">
+                <h3>Pegamento Para Pestañas</h3>
+                <p>Precio: $4.000</p>
+                <button>Comprar</button>
+            </div>
+            <div class="product">
+                <img src="img/Pestañas/Pestañas8.jpg">
+                <h3>Pestañina Beauty Model</h3>
+                <p>Precio: $7.500</p>
+                <button>Comprar</button>
+            </div>
+            <div class="product">
+                <img src="img/Pestañas/Pestañas9.jpg">
+                <h3>Pestañina 4D</h3>
+                <p>Precio: $7.000</p>
+                <button>Comprar</button>
+            </div>
+            <div class="product">
+                <img src="img/Pestañas/Pestañas11.jpg">
+                <h3>Pestañina Thick Lasting</h3>
+                <p>Precio: $8.000</p>
+                <button>Comprar</button>
+            </div>
+            <div class="product">
+                <img src="img/Pestañas/Pestañas13.jpg">
+                <h3>Pestañina 3D</h3>
+                <p>Precio: $7.000</p>
+                <button>Comprar</button>
+            </div>
+        </div>
+        <h2 id="Labios">LABIOS</h2>
+        <div class="category">
+            <div class="product">
+                <img src="img/Labios/Labios4.jpg">
+                <h3>Balsamo Hidratante Fresa</h3>
+                <p>Precio: $5.000</p>
+                <button>Comprar</button>
+            </div>
+            <div class="product">
+                <img src="img/Labios/Labios5.jpg">
+                <h3>Balsamo Hidratante Frutas</h3>
+                <p>Precio: $5.000</p>
+                <button>Comprar</button>
+            </div>
+            <div class="product">
+                <img src="img/Labios/Labios7.jpg">
+                <h3>Brillo Labial Ultra Hd</h3>
+                <p>Precio: $5.500</p>
+                <button>Comprar</button>
+            </div>
+            <div class="product">
+                <img src="img/Labios/Labios11.jpg">
+                <h3>Brillo Escarchado</h3>
+                <p>Precio: $5.000</p>
+                <button>Comprar</button>
+            </div>
+            <div class="product">
+                <img src="img/Labios/Labios10.jpg">
+                <h3>Brillo Voluminizador</h3>
+                <p>Precio: $5.000</p>
+                <button>Comprar</button>
+            </div>
+            <div class="product">
+                <img src="img/Labios/Labios9.jpg">
+                <h3>Brillo Labial Nude</h3>
+                <p>Precio: $5.000</p>
+                <button>Comprar</button>
+            </div>
+            <div class="product">
+                <img src="img/Labios/Labios13.jpg">
+                <h3>Tinta De Labios Tapa De Orejitas</h3>
+                <p>Precio: $5.000</p>
+                <button>Comprar</button>
+            </div>
+            <div class="product">
+                <img src="img/Labios/Labios14.jpg">
+                <h3>Labial Matte Romantic Snow</h3>
+                <p>Precio: $6.000</p>
+                <button>Comprar</button>
+            </div>
+            <div class="product">
+                <img src="img/Labios/Labios18.jpg">
+                <h3>Labial Matte 3D</h3>
+                <p>Precio: $6.000</p>
+                <button>Comprar</button>
+            </div>
+            <div class="product">
+                <img src="img/Labios/Labios17.jpg">
+                <h3>Labial En Barra Kiss Me</h3>
+                <p>Precio: $5.500</p>
+                <button>Comprar</button>
+            </div>
+            <div class="product">
+                <img src="img/Labios/Labios19.jpg">
+                <h3>Kit Labial Liquido Matte + Lápiz Ushas</h3>
+                <p>Precio: $12.000</p>
+                <button>Comprar</button>
+            </div>
+            <div class="product">
+                <img src="img/Labios/Labios20.jpg">
+                <h3>Kit Labial Barra Matte + Lápiz Ushas</h3>
+                <p>Precio: $12.000</p>
+                <button>Comprar</button>
+            </div>
+        </div> 
+        <h2 id="CuidadoF">CUIDADO FACIAL</h2>
+        <div class="category">
+            <div class="product">
+                <img src="img/CuidadoF/Cuidado1.jpg">
+                <h3>Jabón Líquido Ácido Hialurónico</h3>
+                <p>Precio: $8.000</p>
+                <button>Comprar</button>
+            </div>
+            <div class="product">
+                <img src="img/CuidadoF/Cuidado2.jpg">
+                <h3>Jabón Facial Hidratante</h3>
+                <p>Precio: $8.000</p>
+                <button>Comprar</button>
+            </div>
+            <div class="product">
+                <img src="img/CuidadoF/Cuidado3.jpg">
+                <h3>Jabón Facial Limpieza Profunda</h3>
+                <p>Precio: $9.000</p>
+                <button>Comprar</button>
+            </div>
+            <div class="product">
+                <img src="img/CuidadoF/Cuidado4.jpg">
+                <h3>Contorno De Ojos Aguacate</h3>
+                <p>Precio: $7.000</p>
+                <button>Comprar</button>
+            </div>
+            <div class="product">
+                <img src="img/CuidadoF/Cuidado5.jpg">
+                <h3>Crema Anti Acne</h3>
+                <p>Precio: $7.000</p>
+                <button>Comprar</button>
+            </div>
+            <div class="product">
+                <img src="img/CuidadoF/Cuidado6.jpg">
+                <h3>Sérum Ácido Hialurónico</h3>
+                <p>Precio: $7.000</p>
+                <button>Comprar</button>
+            </div>
+            <div class="product">
+                <img src="img/CuidadoF/Cuidado7.jpg">
+                <h3>Sérum Retinol Antiedad</h3>
+                <p>Precio: $9.000</p>
+                <button>Comprar</button>
+            </div>
+            <div class="product">
+                <img src="img/CuidadoF/Cuidado8.jpg">
+                <h3>Sérum Hidratante Bioaqua</h3>
+                <p>Precio: $8.000</p>
+                <button>Comprar</button>
+            </div>
+            <div class="product">
+                <img src="img/CuidadoF/Cuidado9.jpg">
+                <h3>Sérum Anti Acne</h3>
+                <p>Precio: $7.000</p>
+                <button>Comprar</button>
+            </div>
+            <div class="product">
+                <img src="img/CuidadoF/Cuidado10.jpg">
+                <h3>Tónico Antiarrugas</h3>
+                <p>Precio: $9.000</p>
+                <button>Comprar</button>
+            </div>
+            <div class="product">
+                <img src="img/CuidadoF/Cuidado11.jpg">
+                <h3>Crema Facial Antiarrugas</h3>
+                <p>Precio: $7.000</p>
+                <button>Comprar</button>
+            </div>
+            <div class="product">
+                <img src="img/CuidadoF/Cuidado12.jpg">
+                <h3>Crema Facial Ácido Hialurónico</h3>
+                <p>Precio: $8.000</p>
+                <button>Comprar</button>
+            </div>
+            <div class="product">
+                <img src="img/CuidadoF/Cuidado13.jpg">
+                <h3>Crema Aclarante Y Despigmentante</h3>
+                <p>Precio: $10.000</p>
+                <button>Comprar</button>
+            </div>
+            <div class="product">
+                <img src="img/CuidadoF/Cuidado14.jpg">
+                <h3>Protector Solar Sadoer</h3>
+                <p>Precio: $10.000</p>
+                <button>Comprar</button>
+            </div>
+            <div class="product">
+                <img src="img/CuidadoF/Cuidado15.jpg">
+                <h3>Agua Micelar
+                </h3>
+                <p>Precio: $7.000</p>
+                <button>Comprar</button>
+            </div>
+        </div>
+        <h2 id="Sombras">SOMBRAS</h2>
+        <div class="category">
+            <div class="product">
+                <img src="img/Sombras/Sombras2.jpg">
+                <h3>Paleta De Sombras Sagui</h3>
+                <p>Precio: $12.000</p>
+                <button>Comprar</button>
+            </div>
+            <div class="product">
+                <img src="img/Sombras/Sombras3.jpg">
+                <h3>Paleta de sombras USHAS</h3>
+                <p>Precio: $14.000</p>
+                <button>Comprar</button>
+            </div>
+            <div class="product">
+                <img src="img/Sombras/Sombras4.jpg">
+                <h3>Paleta de sombras e iluminadores</h3>
+                <p>Precio: $14.500</p>
+                <button>Comprar</button>
+            </div>
+            <div class="product">
+                <img src="img/Sombras/Sombras6.jpg">
+                <h3>Paleta De Sombras Cookies</h3>
+                <p>Precio: $12.500</p>
+                <button>Comprar</button>
+            </div>
+            <div class="product">
+                <img src="img/Sombras/Sombras7.jpg">
+                <h3>Paleta De Sombras X12 Tonos</h3>
+                <p>Precio: $14.000</p>
+                <button>Comprar</button>
+            </div>
+            <div class="product">
+                <img src="img/Sombras/Sombras9.jpg">
+                <h3>Paleta de sombras x18 tonos</h3>
+                <p>Precio: $17.500</p>
+                <button>Comprar</button>
+            </div>
+        </div>
+        <h2 id="Otros">OTROS</h2>
+        <div class="category">
+            <div class="product">
+                <img src="img/Otros/Otros1.jpg">
+                <h3>Cesta Organizadora</h3>
+                <p>Precio: $4.000</p>
+                <button>Comprar</button>
+            </div>
+            <div class="product">
+                <img src="img/Otros/Otros3.jpg">
+                <h3>Cesta Organizadora Corazón</h3>
+                <p>Precio: $12.000</p>
+                <button>Comprar</button>
+            </div>
+            <div class="product">
+                <img src="img/Otros/Otros4.jpg">
+                <h3>Pomo Triangular</h3>
+                <p>Precio: $2.500</p>
+                <button>Comprar</button>
+            </div>
+            <div class="product">
+                <img src="img/Otros/Otros5.jpg">
+                <h3>Pomo X2 Redondos</h3>
+                <p>Precio: $3.500</p>
+                <button>Comprar</button>
+            </div>
+            <div class="product">
+                <img src="img/Otros/Otros8.jpg">
+                <h3>Set de spray pomo blender y envase para crema</h3>
+                <p>Precio: $9.000</p>
+                <button>Comprar</button>
+            </div>
+            <div class="product">
+                <img src="img/Otros/Otros9.jpg">
+                <h3>Beauty Blender</h3>
+                <p>Precio: $4.000</p>
+                <button>Comprar</button>
+            </div>
+            <div class="product">
+                <img src="img/Otros/Otros11.jpg">
+                <h3>Espejo Cuadrado De Mano</h3>
+                <p>Precio: $8.000</p>
+                <button>Comprar</button>
+            </div>
+            <div class="product">
+                <img src="img/Otros/Otros12.jpg">
+                <h3>Perfilador De Cejas X3</h3>
+                <p>Precio: $5.000</p>
+                <button>Comprar</button>
+            </div>
+        </div>      
+    </div>
+
+
+    </div>
+    <button id="viewCart" style="position: fixed; bottom: 100px; right: 20px; background-color: #333; color: white; border: none; padding: 10px; border-radius: 100%; cursor: pointer; z-index: 1001;">
+        <i class="fas fa-shopping-cart"></i><span id="cartCount" style="position: absolute; top: -10px; right: -10px; background-color: #caa7d3; color: white; border-radius: 50%; padding: 5px 10px; font-size: 12px;">0</span>
+    </button>
+    
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const nav = document.querySelector('nav');
+        menuToggle.addEventListener('click', () => {
+            if (nav.style.transform === 'translateX(0px)') {
+                nav.style.transform = 'translateX(-220px)';
+                menuToggle.classList.remove('open');
+            } else {
+                nav.style.transform = 'translateX(0px)';
+                menuToggle.classList.add('open');
+            }
+        });
+    
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    
+        const updateCartCount = () => {
+            const cartCount = document.getElementById('cartCount');
+            cartCount.innerText = cart.reduce((total, item) => total + item.quantity, 0);
+        };
+    
+        const buttons = document.querySelectorAll('.product button');
+        buttons.forEach(button => {
+            button.addEventListener('click', (event) => {
+                const product = event.target.closest('.product');
+                const productName = product.querySelector('h3').innerText;
+                const productPrice = product.querySelector('p').innerText;
+                const productImage = product.querySelector('img').src;
+                const existingProduct = cart.find(item => item.name === productName);
+                if (existingProduct) {
+                    existingProduct.quantity += 1;
+                } else {
+                    cart.push({ name: productName, price: productPrice, image: productImage, quantity: 1 });
+                }
+                localStorage.setItem('cart', JSON.stringify(cart));
+                updateCartCount();
+            });
+        });
+    
+        document.getElementById('viewCart').addEventListener('click', () => {
+            window.location.href = 'carrito.html';
+        });
+    
+        updateCartCount();
+    </script>
+    
+    <button id="scrollToTop" style="position: fixed; bottom: 20px; right: 20px; background-color: #333; color: white; border: none; padding: 10px; border-radius: 100px; cursor: pointer; display: none; z-index: 1001;">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        const scrollToTopButton = document.getElementById('scrollToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollToTopButton.style.display = 'block';
+            } else {
+                scrollToTopButton.style.display = 'none';
+            }
+        });
+
+        scrollToTopButton.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+      
+    const viewCartButton = document.getElementById('viewCart');
+    const cartModal = document.getElementById('cartModal');
+    const cartItems = document.getElementById('cartItems').querySelector('tbody');
+    const closeCartButton = document.getElementById('closeCart');
+    const checkoutButton = document.getElementById('checkoutButton');
+    const cartCount = document.getElementById('cartCount');
+
+    viewCartButton.addEventListener('click', () => {
+        cartItems.innerHTML = '';
+        cart.forEach((item, index) => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${item.name}</td>
+                <td class="price" style="text-align: right;">${item.price}</td>
+                <td class="quantity" style="text-align: center;"><input type="number" value="${item.quantity}" min="1" style="width: 50px;"></td>
+                <td style="text-align: center;"><button data-index="${index}" style="background-color: red; color: white; border: none; padding: 5px; border-radius: 5px; cursor: pointer;">Eliminar</button></td>
+            `;
+            cartItems.appendChild(row);
+        });
+        cartModal.style.display = 'block';
+
+        document.querySelectorAll('#cartItems input').forEach((input) => {
+            input.addEventListener('change', (event) => {
+                const index = event.target.closest('tr').querySelector('button').dataset.index;
+                cart[index].quantity = parseInt(event.target.value);
+                updateCartCount();
+                viewCartButton.click();
+            });
+        });
+
+        document.querySelectorAll('#cartItems button').forEach((button) => {
+            button.addEventListener('click', (event) => {
+                const index = event.target.dataset.index;
+                cart.splice(index, 1);
+                updateCartCount();
+                viewCartButton.click();
+            });
+        });
+    });
+
+    closeCartButton.addEventListener('click', () => {
+        cartModal.style.display = 'none';
+    });
+
+    checkoutButton.addEventListener('click', () => {
+        const message = updateCartMessage();
+        const whatsappUrl = `https://wa.me/3507630850?text=${encodeURIComponent(message)}`;
+        window.open(whatsappUrl, '_blank');
+    });
+
+
+
+        document.addEventListener('DOMContentLoaded', () => {
+    const cartModal = document.getElementById('cartModal');
+    const closeCartButton = document.getElementById('closeCart');
+    const checkoutButton = document.getElementById('checkoutButton');
+
+    closeCartButton.addEventListener('click', () => {
+        cartModal.style.display = 'none';
+    });
+
+    checkoutButton.addEventListener('click', () => {
+        const message = updateCartMessage();
+        const whatsappUrl = `https://wa.me/3507630850?text=${encodeURIComponent(message)}`;
+        window.open(whatsappUrl, '_blank');
+    });
+
+function updateCartTotal() {
+    const cartItems = document.querySelectorAll('#cartItems tbody tr');
+    let total = 0;
+    cartItems.forEach(item => {
+        const quantity = parseInt(item.querySelector('.quantity input').value);
+        const price = parseFloat(item.querySelector('.price').innerText.replace('$', '').replace(/\./g, '').replace(',', '.'));
+        const itemTotal = quantity * price;
+        item.querySelector('.item-total').innerText = `$${itemTotal.toFixed(2)}`;
+        total += itemTotal;
+
+        console.log(`Producto: ${item.querySelector('td').innerText}, Cantidad: ${quantity}, Precio: ${price}, Total: ${itemTotal}`);
+    });
+
+    
+}
+    updateCartTotal();
+});
+
+    </script>
+
+<div id="productModal" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: white; padding: 20px; border: 2px solid rgba(0, 0, 0, 0.178); border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); z-index: 1002; width: 90%; max-width: 350px;">
+    <div style="display: flex; flex-direction: column; align-items: center;">
+        <img id="modalProductImage" src="" alt="Producto" style="width: 80%; border-radius: 10px; margin-bottom: 20px;">
+        <h2 id="modalProductName" style="text-align: center; margin-bottom: 20px; color: #333;"></h2>
+        <p id="modalProductPrice" style="text-align: center; margin-bottom: 20px; color: #333;"></p>
+        <div style="display: flex; justify-content: space-around; width: 100%;">
+            <button id="addToCartButton" style="background-color: #caa7d3; color: white; border: 2px solid rgba(0, 0, 0, 0.178); padding: 10px 20px; border-radius: 5px; cursor: pointer;">Agregar al Carrito</button>
+            <button id="closeProductModal" style="background-color: #caa7d3; color: white; border: 2px solid rgba(0, 0, 0, 0.178); padding: 10px 20px; border-radius: 5px; cursor: pointer;">Cerrar</button>
+        </div>
+    </div>
+</div>
+
+
+    <script>
+        const productModal = document.getElementById('productModal');
+        const modalProductImage = document.getElementById('modalProductImage');
+        const modalProductName = document.getElementById('modalProductName');
+        const modalProductPrice = document.getElementById('modalProductPrice');
+        const addToCartButton = document.getElementById('addToCartButton');
+        const closeProductModalButton = document.getElementById('closeProductModal');
+
+        document.querySelectorAll('.product img').forEach(img => {
+            img.addEventListener('click', (event) => {
+                const product = event.target.closest('.product');
+                const productName = product.querySelector('h3').innerText;
+                const productPrice = product.querySelector('p').innerText;
+                const productImageSrc = product.querySelector('img').src;
+
+                modalProductImage.src = productImageSrc;
+                modalProductName.innerText = productName;
+                modalProductPrice.innerText = productPrice;
+
+                productModal.style.display = 'block';
+            });
+        });
+
+        addToCartButton.addEventListener('click', () => {
+            const productName = modalProductName.innerText;
+            const productPrice = modalProductPrice.innerText;
+            const existingProduct = cart.find(item => item.name === productName);
+            if (existingProduct) {
+                existingProduct.quantity += 1;
+            } else {
+                cart.push({ name: productName, price: productPrice, quantity: 1 });
+            }
+            updateCartCount();
+            productModal.style.display = 'none';
+        });
+
+        closeProductModalButton.addEventListener('click', () => {
+            productModal.style.display = 'none';
+        });
+    </script>
